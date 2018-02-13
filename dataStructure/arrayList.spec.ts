@@ -1,14 +1,10 @@
 import ArrayList from './arrayList'
 
 describe('ArrayList', () => {
-  test('returns the correct length', () => {
+  test('can add an element', () => {
     const arr = new ArrayList<number>()
 
     expect(arr.length).toBe(0)
-  })
-
-  test('can add an element', () => {
-    const arr = new ArrayList<number>()
 
     arr.add(10)
     expect(arr.length).toBe(1)
@@ -46,19 +42,26 @@ describe('ArrayList', () => {
 
     expect(arr.capacity).toBe(4)
 
-    arr.remove(0)
+    let el
+
+    el = arr.remove(0)
+    expect(el).toBe(10)
     expect(arr.length).toBe(3)
     expect(arr.retrieve(0)).toBe(11)
     expect(arr.retrieve(1)).toBe(12)
     expect(arr.retrieve(2)).toBe(13)
 
-    arr.remove(1)
+    el = arr.remove(1)
+    expect(el).toBe(12)
     expect(arr.length).toBe(2)
     expect(arr.retrieve(1)).toBe(13)
     expect(arr.capacity).toBe(2)
 
-    arr.remove(0)
-    arr.remove(0)
+    el = arr.remove(0)
+    expect(el).toBe(11)
+
+    el = arr.remove(0)
+    expect(el).toBe(13)
     expect(arr.length).toBe(0)
   })
 })

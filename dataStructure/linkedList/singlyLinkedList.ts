@@ -28,33 +28,32 @@ class SinglyLinkedList<T> {
   append(element: T) {
     const newNode = new ListNode<T>(element)
 
-    if (this._length === 0) {
-      this._head._next = newNode
-      this._tail = newNode
-    } else {
-      this._tail._next = newNode
-      this._tail = newNode
-    }
+    this._tail._next = newNode
+    this._tail = newNode
 
     this._length++
   }
 
   remove(element: T): T {
     let node = this._head
+    let prevNode
+    let nextNode
 
     while (node._next !== null) {
+      prevNode = node
       node = node._next
+      nextNode = node._next
 
       if (node._element === element) {
-        const nextNode = node._next
+        prevNode._next = nextNode
+        break
       }
-
     }
 
+    this._length--
+
+    return node._element
   }
-
-
-
 }
 
 export default SinglyLinkedList
