@@ -1,0 +1,40 @@
+{
+  "name": "interview",
+  "version": "0.0.0",
+  "description": "Code for various data structures and algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:w": "jest --watch",
+    "test:wa": "jest --watchAll"
+  },
+  "keywords": [
+    "interview",
+    "data",
+    "structures",
+    "algorithms"
+  ],
+  "author": "Christian Sakai",
+  "license": "MIT",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^22.1.2",
+    "@types/node": "^9.4.5",
+    "jest": "^22.2.2",
+    "ts-jest": "^22.0.4",
+    "typescript": "^2.7.1"
+  }
+}
