@@ -95,7 +95,7 @@ class LinkedList<T> {
    *
    * @param element Element to be checked
    */
-  isMember(element: T): boolean {
+  contains(element: T): boolean {
     let result = this.iterate((el) => el === element)
 
     for (let i = 0; i < result.length; i++) {

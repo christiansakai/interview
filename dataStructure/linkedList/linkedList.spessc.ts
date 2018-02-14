@@ -124,5 +124,5 @@ function testLinkedList(isDoubly: boolean = false) {
   })
 }
 
-testLinkedList()
+// testLinkedList()
 // gcctestLinkedList(true)
