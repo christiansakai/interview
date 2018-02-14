@@ -4,7 +4,7 @@
  */
 class ArrayList<T> {
 
-  /* Full capacity of the array */
+  /** Full capacity of the array */
   private _capacity: number
 
   /** 
