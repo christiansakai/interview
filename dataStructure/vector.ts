@@ -70,6 +70,16 @@ class Vector<T> {
     return this._capacity
   }
 
+  /**
+   * Check whether the vector
+   * is empty.
+   *
+   * Time = O(1)
+   * Space = O(1)
+   *
+   * @returns `true` if the vector is empty,
+   *          `false` otherwise.
+   */
   get isEmpty(): boolean {
     return this._isEmpty
   }
@@ -186,6 +196,12 @@ class Vector<T> {
     return false
   }
 
+  /**
+   * Get the string representation
+   * of this vector.
+   *
+   * @returns String representation of the vector
+   */
   toString(): string {
     let str = '['
     for (let i = 0; i < this._length; i++) {
@@ -254,7 +270,7 @@ class Vector<T> {
 
   /**
    * Shift contenst of the vector 1 to the left,
-   * starting frrom a particular index.
+   * starting from a particular index.
    *
    * Time = O(n)
    * Space = O(1)
@@ -271,6 +287,17 @@ class Vector<T> {
     return vector
   }
 
+  /**
+   * Shift contenst of the vector 1 to the right,
+   * starting from a particular index.
+   *
+   * Time = O(n)
+   * Space = O(1)
+   *
+   * @param startIndex Starting index of the elements to be shifted
+   * @param vector The vector to be operated on
+   * @returns New aray with its contents shifted
+   */
   private _shiftsContentsOneRight(startIndex: number, vector: Array<T>): Array<T> {
     for (let i = this._length; i >= startIndex; i--) {
       vector[i] = vector[i - 1]
