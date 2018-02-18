@@ -237,13 +237,13 @@ class Vector<T> {
    * @return Accumulated value
    */
   reduce(func: (acc: any, element: T) => any, acc: any): any {
-    let total = acc
+    let result = acc
 
     for (let i = 0; i < this._length; i++) {
-      total = func(total, this._array[i])
+      result = func(result, this._array[i])
     }
 
-    return total
+    return result
   }
 
   /**

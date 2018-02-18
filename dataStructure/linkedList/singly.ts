@@ -96,36 +96,15 @@ class LinkedList<T> {
    * @param element Element to be checked
    */
   contains(element: T): boolean {
-    let result = this.iterate((el) => el === element)
-
-    for (let i = 0; i < result.length; i++) {
-      if (result[i] === true) return true
-    }
-
-    return false
-  }
-
-  /**
-   * Iterate over the elements in the list.
-   *
-   * Time = O(n)
-   * Space = O(n)
-   *
-   * @param func Function to be applied per element in the list
-   */
-  iterate(func: (element: T) => any): Array<any> {
-    const result = new Array<any>(this._length)
-
     let node = this._head
-    let i = 0
 
     while (node._next !== null) {
       node = node._next
-      result[i] = func(node._element)
-      i++
+      if (node._element === element)
+        return true
     }
 
-    return result
+    return false
   }
 
   /**
@@ -211,6 +190,52 @@ class LinkedList<T> {
     this._length--
 
     return node._element
+  }
+
+  reverse() {
+    const firstNode = this._head._next
+    const lastNode = this._tail
+
+    let node = this._head
+    let nextNode
+
+    this._doReverse(this._head._next)
+
+    this._head._next = lastNode
+    this._tail = firstNode
+  }
+
+  private _doReverse(node: ListNode<T>) {
+    if (node._next === null) return
+
+    const nextNode = node._next
+
+    this._doReverse(nextNode)
+
+    node._next = null
+    nextNode._next = node
+  }
+
+  /**
+   * Reduce the linked list into an accumulated value.
+   *
+   * Time = O(n)
+   * Space = O(1)
+   *
+   * @param func Reducer function
+   * @param acc Accumulator value
+   * @return Accumulated value
+   */
+  reduce(func: (acc: any, element: T) => any, acc: any): any {
+    let result = acc
+    let node = this._head
+
+    while (node._next !== null) {
+      node = node._next
+      result = func(result, node._element)
+    }
+
+    return result
   }
 }
 

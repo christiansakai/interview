@@ -93,6 +93,45 @@ function runLinkedListTest(isDoubly: boolean = false) {
       expect(list.contains(10)).toBe(false)
       expect(list.length).toBe(0)
     })
+
+    test('can be reversed', () => {
+      const list = LinkedList.createLinkedList(isDoubly)
+
+      list.append(10)
+      list.append(11)
+      list.append(12)
+      list.append(13)
+
+      const result = list.reduce((acc, el) => {
+        acc.push(el)
+        return acc
+      }, [])
+
+      expect(result).toEqual([10, 11, 12, 13])
+
+      list.reverse()
+      const resultReversed = list
+        .reduce((acc, el) => {
+          acc.push(el)
+          return acc
+        }, [])
+
+      expect(resultReversed).toEqual([13, 12, 11, 10])
+    })
+
+    test('can be reduced', () => {
+      const list = LinkedList.createLinkedList(isDoubly)
+
+      list.append(10)
+      list.append(11)
+      list.append(12)
+      list.append(13)
+      list.append(14)
+
+      const result = list.reduce((acc, el) => acc + el, 100)
+
+      expect(result).toBe(160)
+    })
   })
 }
 
