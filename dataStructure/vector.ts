@@ -49,7 +49,7 @@ class Vector<T> {
    * Get the length of the vector.
    *
    * Time = O(1)
-   * Space = O(1)
+   * Space = -
    *
    * @returns Length of the vector
    */
@@ -62,7 +62,7 @@ class Vector<T> {
    * For testing purposes.
    *
    * Time = O(1)
-   * Space = O(1)
+   * Space = -
    *
    * @returns Capacity of the vector
    */
@@ -75,7 +75,7 @@ class Vector<T> {
    * is empty.
    *
    * Time = O(1)
-   * Space = O(1)
+   * Space = -
    *
    * @returns `true` if the vector is empty,
    *          `false` otherwise.
@@ -85,11 +85,11 @@ class Vector<T> {
   }
 
   /**
-   * Add an element to end of the vector
+   * Add an element to end of the vector.
    * The vector will grow by the resize factor.
    *
    * Time = O(1) (Amortized). see CTCI 6th Ed. p. 43 & 89.
-   * Space = O(1)
+   * Space = O(n)
    *
    * @param element Element to be added
    * @returns `true`
@@ -110,6 +110,17 @@ class Vector<T> {
     return true
   }
 
+  /**
+   * Add an element at the specified index.
+   * This will move the subsequent elements to the right.
+   *
+   * Time = TODO
+   * Space = TODO
+   *
+   * @param index Index of the element to be added to
+   * @param element Element to be added
+   * @returns `true`
+   */
   addAt(index: number, element: T): true {
     this._checkIndex(index)
 
@@ -134,7 +145,7 @@ class Vector<T> {
    * based on the vector index. 
    *
    * Time = O(1)
-   * Space = O(1)
+   * Space = -
    *
    * @param index Index of the element
    * @returns Element stored on the index
@@ -144,6 +155,15 @@ class Vector<T> {
     return this._array[index]
   }
 
+  /**
+   * Remove the first occurence of the specified element.
+   *
+   * Time = O(n)
+   * Space = -
+   *
+   * @param element Element to be removed
+   * @returns `true` if element was found, `false` otherwise
+   */
   remove(element: T): boolean {
     for (let i = 0; i < this._length; i++) {
       if (this._array[i] === element) {
@@ -157,10 +177,11 @@ class Vector<T> {
 
   /**
    * Remove an element from the vector
-   * based on the vector index.
+   * based on the vector index, then
+   * shift the subsequent elements to the left.
    *
-   * Time = O(1) TODO: Why?
-   * Space = O(1)
+   * Time = TODO
+   * Space = TODO
    *
    * @param index Index of the element
    * @returns Element stored on the index
@@ -187,6 +208,15 @@ class Vector<T> {
     return el
   }
 
+  /**
+   * Checks whether the vector contain the specified element.
+   *
+   * Time = O(n)
+   * Space = -
+   *
+   * @param element Element to be checked
+   * @returns `true` if Element found, `false` otherwise
+   */
   contains(element: T): boolean {
     for (let i = 0; i < this._length; i++) {
       if (this._array[i] === element)
@@ -197,8 +227,31 @@ class Vector<T> {
   }
 
   /**
+   * Reduce the vector into an accumulated value.
+   *
+   * Time = O(n)
+   * Space = O(1)
+   *
+   * @param func Reducer function
+   * @param acc Accumulator value
+   * @return Accumulated value
+   */
+  reduce(func: (acc: any, element: T) => any, acc: any): any {
+    let total = acc
+
+    for (let i = 0; i < this._length; i++) {
+      total = func(total, this._array[i])
+    }
+
+    return total
+  }
+
+  /**
    * Get the string representation
    * of this vector.
+   *
+   * Time = O(n)
+   * Space = O(n) Assuming string concatenation is O(1)
    *
    * @returns String representation of the vector
    */
@@ -273,7 +326,7 @@ class Vector<T> {
    * starting from a particular index.
    *
    * Time = O(n)
-   * Space = O(1)
+   * Space = -
    *
    * @param startIndex Starting index of the elements to be shifted
    * @param vector The vector to be operated on
@@ -292,7 +345,7 @@ class Vector<T> {
    * starting from a particular index.
    *
    * Time = O(n)
-   * Space = O(1)
+   * Space = -
    *
    * @param startIndex Starting index of the elements to be shifted
    * @param vector The vector to be operated on

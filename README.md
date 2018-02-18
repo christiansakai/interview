@@ -38,21 +38,16 @@ __Concepts__
 
 
 Agencies:
-hired.com -> too crowded, everyone is here
-triplebyte.com -> highest caliber
 whitetruffle.com -> startup
 functionalworks-hub.com
 interviewjet.com
 vettery.com -> startup
+triplebyte.com -> highest caliber
 
 github job
 stackoverflow jobs
-angel.co
 
-google
-facebook
 bloomberb
-jane street
 microsoft
 apple
 squarespace
@@ -63,7 +58,6 @@ meetup
 thoughtworks
 venmo
 snapchat
-uber
 adobe
 microsoft
 intuit
@@ -75,7 +69,24 @@ spotify
 jp morgan
 new york times
 
+Update:
+* Update Profile Photo
+* LinkedIn
+  * Profile Photo
+* Hired.com 
+  * Profile Photo
+  * Recommendations
+* AngelList
+  * Profile Photo
+* Functionalworks
+  * Profile photo
 
+Applied:
+* Google (through Summer)
+* Bloomberg (through Trevor)
+* Facebook (through AngelList)
+* Uber (through AngelList)
+* Jane Street (through website)
 
 
 

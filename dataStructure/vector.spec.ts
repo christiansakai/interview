@@ -197,4 +197,18 @@ describe('Vector', () => {
     expect(vec.length).toBe(0)
     expect(vec.toString()).toBe('[]')
   })
+
+  test('can be reduced', () => {
+    const vec = new Vector<number>(2)
+
+    vec.add(10)
+    vec.add(11)
+    vec.add(12)
+    vec.add(13)
+    vec.add(14)
+
+    const result = vec.reduce((acc, el) => acc + el, 100)
+
+    expect(result).toBe(160)
+  })
 })
