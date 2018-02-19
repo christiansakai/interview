@@ -29,7 +29,7 @@ class HashMap<K, V> implements Reduceable {
 
   constructor(arraySize: number = 10) {
     this._array = new Array(arraySize)
-    this._array.fill(null)
+    this._array.fill(new LinkedList())
 
     this._arraySize = arraySize
     this._size = 0
@@ -47,14 +47,12 @@ class HashMap<K, V> implements Reduceable {
 
     for (let i = 0; i < this._array.length; i++) {
       bucket = this._array[i]
-      found = bucket.reduce((acc, el) => {
-        el.value === value ? true : acc
-      }, false)
-
-      if (found) return true
+      found = bucket.reduce((acc, el) =>
+        el._value === value || acc
+      , false)
     }
 
-    return false
+    return found
   }
 
   get(key: K): V | null {
@@ -127,7 +125,7 @@ class HashMap<K, V> implements Reduceable {
       hash = hash & hash
     }
 
-    return hash
+    return Math.abs(hash)
   }
 
   private _slot(hash: number): number {
@@ -139,7 +137,7 @@ class HashMap<K, V> implements Reduceable {
     const bucket = this._array[index]
 
     return bucket.reduce((acc, kv) => 
-      kv._key === key ? kv : null
+      kv._key === key ? kv : acc
     , null)
   }
 
