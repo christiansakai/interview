@@ -5,7 +5,7 @@ My resource for Software Engineer interview preparations. The plan is to include
 __Data Structures__
 * Linked Lists
   * [x] Singly Linked List
-  * [ ] Doubly Linked List
+  * [x] Doubly Linked List
 * Trees
   * [ ] Binary Search Tree
   * [ ] AVL Tree
@@ -15,8 +15,8 @@ __Data Structures__
   * [ ] R Tree
 * [ ] Graph
 * Stack and Queue
-  * [ ] Stack and Queue
-  * [ ] Queue
+  * [x] Stack and Queue
+  * [x] Queue
 * [x] Vector
 * Maps
   * [ ] Hash Map
@@ -83,7 +83,6 @@ Update:
 
 Applied:
 * Google (through Summer)
-* Bloomberg (through Trevor)
 * Facebook (through AngelList)
 * Uber (through AngelList)
 * Jane Street (through website)
