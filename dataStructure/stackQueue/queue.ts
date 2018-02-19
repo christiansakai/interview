@@ -70,7 +70,6 @@ class Queue<T> {
   isEmpty(): boolean {
     return this._list.length === 0
   }
-
 }
 
 export default Queue
