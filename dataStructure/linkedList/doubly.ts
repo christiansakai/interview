@@ -25,7 +25,9 @@ class ListNode<T> {
 }
 
 /**
- * Doubly Linked List.
+ * Doubly Linked List. 
+ * The implementation here is using null element
+ * as the head of the list.
  */
 class LinkedList<T> {
 
@@ -49,7 +51,7 @@ class LinkedList<T> {
    * Get the length of the list.
    *
    * Time = O(1)
-   * Space = O(1)
+   * Space = -
    *
    * @returns Length of the list
    */
@@ -98,41 +100,20 @@ class LinkedList<T> {
    * Check whether an element is inside the list.
    *
    * Time = O(n)
-   * Space = O(n)
+   * Space = O(1)
    *
    * @param element Element to be checked
    */
   contains(element: T): boolean {
-    let result = this.iterate((el) => el === element)
-
-    for (let i = 0; i < result.length; i++) {
-      if (result[i] === true) return true
-    }
-
-    return false
-  }
-
-  /**
-   * Iterate over the elements in the list.
-   *
-   * Time = O(n)
-   * Space = O(n)
-   *
-   * @param func Function to be applied per element in the list
-   */
-  iterate(func: (element: T) => any): Array<any> {
-    const result = new Array<any>(this._length)
-
     let node = this._head
-    let i = 0
 
     while (node._next !== null) {
       node = node._next
-      result[i] = func(node._element)
-      i++
+      if (node._element === element)
+        return true
     }
 
-    return result
+    return false
   }
 
   /**
@@ -150,6 +131,7 @@ class LinkedList<T> {
     const node = this._head._next
     this._head._next = node._next
 
+    node._prev = null
     node._next = null
 
     this._length--
@@ -169,18 +151,14 @@ class LinkedList<T> {
   removeFromTail(): T | null {
     if (this._length === 0) return null
 
-    let node = this._head
-    let prevNode
-    let nextNode
+    const node = this._tail
 
-    while (node._next !== null) {
-      prevNode = node
-      node = node._next
-      nextNode = node._next
-    }
-
+    const prevNode = node._prev
+    prevNode._next = null
     this._tail = prevNode
-    this._tail._next = null
+
+    node._prev = null
+    node._next = null
 
     this._length--
 
@@ -189,6 +167,8 @@ class LinkedList<T> {
 
   /**
    * Remove an element from the list.
+   * This will remove the first encounter of
+   * that element starting from the head of the list.
    *
    * Time = O(n)
    * Space = O(1)
@@ -214,20 +194,68 @@ class LinkedList<T> {
         node._next = null
         node._prev = null
 
+        this._length--
+
         break
       }
     }
 
-    this._length--
-
     return node._element
   }
 
+  /**
+   * Reduce the linked list into an accumulated value.
+   *
+   * Time = O(n)
+   * Space = O(1)
+   *
+   * @param func Reducer function
+   * @param acc Accumulator value
+   * @return Accumulated value
+   */
   reduce(func: (acc: any, element: T) => any, acc: any): any {
+    let result = acc
+    let node = this._head
+
+    while (node._next !== null) {
+      node = node._next
+      result = func(result, node._element)
+    }
+
+    return result
   }
 
-  reverse() {}
+  /**
+   * Reverse the list.
+   *
+   * Time = O(n)
+   * Space = O(1)
+   */
+  reverse() {
+    if (this._length === 1) return
+
+    let firstNode = this._head._next
+    let lastNode = this._tail
+
+    let node = this._tail
+    let prevNode
+    let nextNode
+
+    while (node._element !== null) {
+      prevNode = node._prev
+      nextNode = node._next
+      node._prev = nextNode
+      node._next = prevNode
+
+      node = node._next
+    }
+
+    lastNode._prev = this._head
+    this._head._next = lastNode
+
+    firstNode._next = null
+    this._tail = firstNode
+  }
 }
 
 export default LinkedList
-

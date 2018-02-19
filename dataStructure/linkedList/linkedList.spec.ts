@@ -1,6 +1,7 @@
 import LinkedList from './linkedList'
 
 runLinkedListTest()
+runLinkedListTest(true)
 
 function runLinkedListTest(isDoubly: boolean = false) {
   describe(`${isDoubly ? 'Doubly' : 'Singly'} LinkedList`, () => {
@@ -110,6 +111,7 @@ function runLinkedListTest(isDoubly: boolean = false) {
       expect(result).toEqual([10, 11, 12, 13])
 
       list.reverse()
+
       const resultReversed = list
         .reduce((acc, el) => {
           acc.push(el)

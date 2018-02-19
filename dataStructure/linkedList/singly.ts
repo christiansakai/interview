@@ -22,6 +22,8 @@ class ListNode<T> {
 
 /**
  * Singly Linked List.
+ * The implementation here is using null element
+ * as the head of the list.
  */
 class LinkedList<T> {
 
@@ -45,7 +47,7 @@ class LinkedList<T> {
    * Get the length of the list.
    *
    * Time = O(1)
-   * Space = O(1)
+   * Space = -
    *
    * @returns Length of the list
    */
@@ -91,7 +93,7 @@ class LinkedList<T> {
    * Check whether an element is inside the list.
    *
    * Time = O(n)
-   * Space = O(n)
+   * Space = O(1)
    *
    * @param element Element to be checked
    */
@@ -160,6 +162,8 @@ class LinkedList<T> {
 
   /**
    * Remove an element from the list.
+   * This will remove the first encounter of
+   * that element starting from the head of the list.
    *
    * Time = O(n)
    * Space = O(1)
@@ -183,16 +187,25 @@ class LinkedList<T> {
         prevNode._next = nextNode
         node._next = null
 
+        this._length--
+
         break
       }
     }
 
-    this._length--
 
     return node._element
   }
 
+  /**
+   * Reverse the list.
+   *
+   * Time = O(n)
+   * Space = O(n)
+   */
   reverse() {
+    if (this._length === 1) return
+
     const firstNode = this._head._next
     const lastNode = this._tail
 
@@ -205,6 +218,14 @@ class LinkedList<T> {
     this._tail = firstNode
   }
 
+  /**
+   * Helper function to reverse the list.
+   *
+   * Time = O(1)
+   * Space = O(1)
+   *
+   * @param node ListNode to be modified.
+   */
   private _doReverse(node: ListNode<T>) {
     if (node._next === null) return
 
