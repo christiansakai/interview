@@ -4,6 +4,10 @@ class Stack<T> {
 
   private _list: SinglyLL<T>
 
+  constructor() {
+    this._list = new SinglyLL()
+  }
+
   push(element: T) {
     this._list.append(element)
   }
@@ -24,3 +28,5 @@ class Stack<T> {
     return this._list.length === 0
   }
 }
+
+export default Stack

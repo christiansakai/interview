@@ -4,6 +4,10 @@ class Queue<T> {
 
   private _list: DoublyLL<T>
 
+  constructor() {
+    this._list = new DoublyLL()
+  }
+
   enqueue(element: T) {
     this._list.append(element)
   }
@@ -25,3 +29,6 @@ class Queue<T> {
   }
 
 }
+
+export default Queue
+
