@@ -2,7 +2,7 @@
  * Vector is an array that automatically grows
  * or shrinks in size.
  */
-class Vector<T> {
+class Vector<T> implements Stringable, Reduceable, Comparable {
 
   /** Full capacity of the vector */
   private _capacity: number
@@ -38,7 +38,9 @@ class Vector<T> {
    * @param resizeFactor Resize factor of the vector
    */
   constructor(capacity: number = 10, resizeFactor: number = 2) {
-    this._array = new Array<T>(capacity)
+    this._array = new Array(capacity)
+    this._array.fill(null)
+
     this._capacity = capacity
     this._length = 0
     this._resizeFactor = resizeFactor
@@ -227,26 +229,6 @@ class Vector<T> {
   }
 
   /**
-   * Reduce the vector into an accumulated value.
-   *
-   * Time = O(n)
-   * Space = O(1)
-   *
-   * @param func Reducer function
-   * @param acc Accumulator value
-   * @return Accumulated value
-   */
-  reduce(func: (acc: any, element: T) => any, acc: any): any {
-    let result = acc
-
-    for (let i = 0; i < this._length; i++) {
-      result = func(result, this._array[i])
-    }
-
-    return result
-  }
-
-  /**
    * Get the string representation
    * of this vector.
    *
@@ -267,6 +249,42 @@ class Vector<T> {
 
     str += ']'
     return str
+  }
+
+  /**
+   * Reduce the vector into an accumulated value.
+   *
+   * Time = O(n)
+   * Space = O(1)
+   *
+   * @param func Reducer function
+   * @param acc Accumulator value
+   * @return Accumulated value
+   */
+  reduce(func: (acc: any, element: T) => any, acc: any): any {
+    let result = acc
+
+    for (let i = 0; i < this._length; i++) {
+      result = func(result, this._array[i])
+    }
+
+    return result
+  }
+
+  /**
+   * Check whether this vector is equal to
+   * another vector or not
+   *
+   * @param vector Vector to be compared with
+   * @return `true` if yes, `false` otherwise
+   */
+  equals(vector: Vector<T>): boolean {
+    for (let i = 0; i < this._length; i++) {
+      if (this._array[i] !== vector._array[i])
+        return false
+    }
+
+    return true
   }
 
   /**
@@ -300,6 +318,8 @@ class Vector<T> {
    */
   private _resizeArray(vector: Array<T>, capacity: number): Array<T> {
     const newArray = new Array<T>(capacity)
+    newArray.fill(null)
+
     return this._copyArr(vector, newArray)
   }
 

@@ -211,4 +211,22 @@ describe('Vector', () => {
 
     expect(result).toBe(160)
   })
+
+  test('can be compared', () => {
+    const vec = new Vector<number>(2)
+    vec.add(10)
+    vec.add(11)
+
+    const vec2 = new Vector<number>(4)
+    vec2.add(10)
+    vec2.add(11)
+
+    expect(vec.equals(vec2)).toBe(true)
+
+    const vec3 = new Vector<number>(2)
+    vec3.add(11)
+    vec3.add(12)
+
+    expect(vec.equals(vec3)).toBe(false)
+  })
 })

@@ -29,7 +29,7 @@ class ListNode<T> {
  * The implementation here is using null element
  * as the head of the list.
  */
-class LinkedList<T> {
+class DoublyLinkedList<T> implements Reduceable, Comparable {
 
   /** Head of the list */
   private _head: ListNode<T>
@@ -248,6 +248,28 @@ class LinkedList<T> {
   }
 
   /**
+   * Check whether this list is equal to
+   * another list or not
+   *
+   * @param sll Doubly linked list to be compared with
+   * @return `true` if yes, `false` otherwise
+   */
+  equals(dll: DoublyLinkedList<T>): boolean {
+    let thisNode = this._head
+    let thatNode = dll._head
+
+    while (thisNode._next !== null) {
+      if (thisNode._element !== thatNode._element)
+        return false
+
+      thisNode = thisNode._next
+      thatNode = thatNode._next
+    }
+
+    return true
+  }
+
+  /**
    * Reverse the list.
    *
    * Time = O(n)
@@ -280,4 +302,4 @@ class LinkedList<T> {
   }
 }
 
-export default LinkedList
+export default DoublyLinkedList

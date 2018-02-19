@@ -25,7 +25,7 @@ class ListNode<T> {
  * The implementation here is using null element
  * as the head of the list.
  */
-class LinkedList<T> {
+class SinglyLinkedList<T> implements Reduceable, Comparable {
 
   /** Head of the list */
   private _head: ListNode<T>
@@ -280,6 +280,28 @@ class LinkedList<T> {
 
     return result
   }
+
+  /**
+   * Check whether this list is equal to
+   * another list or not
+   *
+   * @param sll Singly linked list to be compared with
+   * @return `true` if yes, `false` otherwise
+   */
+  equals(sll: SinglyLinkedList<T>): boolean {
+    let thisNode = this._head
+    let thatNode = sll._head
+
+    while (thisNode._next !== null) {
+      if (thisNode._element !== thatNode._element)
+        return false
+
+      thisNode = thisNode._next
+      thatNode = thatNode._next
+    }
+
+    return true
+  }
 }
 
-export default LinkedList
+export default SinglyLinkedList
