@@ -7,6 +7,7 @@ __Data Structures__
   * [x] Singly Linked List
   * [x] Doubly Linked List
 * Trees
+  * [ ] Tree
   * [ ] Binary Search Tree
   * [ ] AVL Tree
   * [ ] Red Black Tree
@@ -18,9 +19,7 @@ __Data Structures__
   * [x] Stack and Queue
   * [x] Queue
 * [x] Vector
-* Maps
-  * [ ] Hash Map
-  * [ ] Tree Map
+* [x] Hash Map
 
 __Algorithm__
 * [ ] Breadth-First Search
