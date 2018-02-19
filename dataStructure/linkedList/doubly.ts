@@ -59,6 +59,28 @@ class LinkedList<T> {
     return this._length
   }
 
+  /**
+   * Get the first element of the list
+   *
+   * Time = O(1)
+   * Space = -
+   */
+  get head(): T {
+    if (this._length === 0) return null
+    return this._head._next._element
+  }
+
+  /**
+   * Get the last element of the list
+   *
+   * Time = O(1)
+   * Space = -
+   */
+  get tail(): T {
+    if (this._length === 0) return null
+    return this._tail._element
+  }
+
   /** 
    * Add element at the beginning of the list.
    *

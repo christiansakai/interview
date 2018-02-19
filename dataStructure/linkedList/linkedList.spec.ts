@@ -10,10 +10,13 @@ function runLinkedListTest(isDoubly: boolean = false) {
       expect(list.length).toBe(0)
 
       list.append(10)
+      expect(list.tail).toBe(10)
       expect(list.contains(10)).toBe(true)
+
       expect(list.length).toBe(1)
 
       list.append(11)
+      expect(list.tail).toBe(11)
       expect(list.contains(10)).toBe(true)
       expect(list.contains(11)).toBe(true)
       expect(list.length).toBe(2)
@@ -24,10 +27,12 @@ function runLinkedListTest(isDoubly: boolean = false) {
       expect(list.length).toBe(0)
 
       list.prepend(10)
+      expect(list.head).toBe(10)
       expect(list.contains(10)).toBe(true)
       expect(list.length).toBe(1)
 
       list.prepend(11)
+      expect(list.head).toBe(11)
       expect(list.contains(10)).toBe(true)
       expect(list.contains(11)).toBe(true)
       expect(list.length).toBe(2)
