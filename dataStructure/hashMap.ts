@@ -29,7 +29,11 @@ class HashMap<K, V> implements Reduceable {
 
   constructor(arraySize: number = 10) {
     this._array = new Array(arraySize)
-    this._array.fill(new LinkedList())
+
+    // Cannot use .fill due to Object pass by reference
+    for (let i = 0; i < this._array.length; i++) {
+      this._array[i] = new LinkedList()
+    }
 
     this._arraySize = arraySize
     this._size = 0
@@ -100,9 +104,13 @@ class HashMap<K, V> implements Reduceable {
     let result = acc
 
     let bucket
+    let bucketResult
     for (let i = 0; i < this._array.length; i++) {
       bucket = this._array[i]
-      result = bucket.reduce(func, result)
+
+      bucket.reduce((_, el) => {
+        result = func(result, el._value)
+      }, null)
     }
 
     return result
