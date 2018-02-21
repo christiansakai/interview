@@ -20,7 +20,7 @@ class Stack<T> {
    *
    * @param element Element to be added
    */
-  push(element: T) {
+  push(element: T): void {
     this._list.append(element)
   }
 

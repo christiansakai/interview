@@ -25,7 +25,8 @@ class ListNode<T> {
  * The implementation here is using null element
  * as the head of the list.
  */
-class SinglyLinkedList<T> implements Reduceable, Comparable {
+class SinglyLinkedList<T> implements 
+  LinkedList<T>, Reduceable, Comparable {
 
   /** Head of the list */
   private _head: ListNode<T>
@@ -85,7 +86,7 @@ class SinglyLinkedList<T> implements Reduceable, Comparable {
    * 
    * @param element Element to be added
    */
-  prepend(element: T) {
+  prepend(element: T): void {
     const node = new ListNode<T>(element)
 
     node._next = this._head._next
@@ -102,7 +103,7 @@ class SinglyLinkedList<T> implements Reduceable, Comparable {
    *
    * @param element Element to be added
    */
-  append(element: T) {
+  append(element: T): void {
     const node = new ListNode<T>(element)
 
     this._tail._next = node
@@ -225,7 +226,7 @@ class SinglyLinkedList<T> implements Reduceable, Comparable {
    * Time = O(n)
    * Space = O(n)
    */
-  reverse() {
+  reverse(): void {
     if (this._length === 1) return
 
     const firstNode = this._head._next
@@ -248,7 +249,7 @@ class SinglyLinkedList<T> implements Reduceable, Comparable {
    *
    * @param node ListNode to be modified.
    */
-  private _doReverse(node: ListNode<T>) {
+  private _doReverse(node: ListNode<T>): void {
     if (node._next === null) return
 
     const nextNode = node._next

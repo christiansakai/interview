@@ -296,7 +296,7 @@ class Vector<T> implements Stringable, Reduceable, Comparable {
    *
    * @param index Index to be checked
    */
-  private _checkIndex(index: number) {
+  private _checkIndex(index: number): void {
     if (!Number.isInteger(index))
       throw new TypeError('Index needs to be an integer')
     

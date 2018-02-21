@@ -29,7 +29,8 @@ class ListNode<T> {
  * The implementation here is using null element
  * as the head of the list.
  */
-class DoublyLinkedList<T> implements Reduceable, Comparable {
+class DoublyLinkedList<T> implements 
+  LinkedList<T>, Reduceable, Comparable {
 
   /** Head of the list */
   private _head: ListNode<T>
@@ -89,7 +90,7 @@ class DoublyLinkedList<T> implements Reduceable, Comparable {
    * 
    * @param element Element to be added
    */
-  prepend(element: T) {
+  prepend(element: T): void {
     const node = new ListNode<T>(element)
 
     node._next = this._head._next
@@ -107,7 +108,7 @@ class DoublyLinkedList<T> implements Reduceable, Comparable {
    *
    * @param element Element to be added
    */
-  append(element: T) {
+  append(element: T): void {
     const node = new ListNode<T>(element)
 
     const tempNode = this._tail
@@ -275,7 +276,7 @@ class DoublyLinkedList<T> implements Reduceable, Comparable {
    * Time = O(n)
    * Space = O(1)
    */
-  reverse() {
+  reverse(): void {
     if (this._length === 1) return
 
     let firstNode = this._head._next

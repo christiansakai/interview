@@ -20,7 +20,7 @@ class Queue<T> {
    *
    * @param element Element to be added
    */
-  enqueue(element: T) {
+  enqueue(element: T): void {
     this._list.append(element)
   }
 

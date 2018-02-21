@@ -36,57 +36,65 @@ __Concepts__
 * [ ] Big O Time & Space
 
 
-Agencies:
-whitetruffle.com -> startup
-functionalworks-hub.com
-interviewjet.com
-vettery.com -> startup
-triplebyte.com -> highest caliber
+## Job Agencies
 
-github job
-stackoverflow jobs
-
-bloomberb
-microsoft
-apple
-squarespace
-digitalocean
-foursquare
-grubhub
-meetup
-thoughtworks
-venmo
-snapchat
-adobe
-microsoft
-intuit
-nvidia
-linkedin
-dropbox
-goldman sachs
-spotify
-jp morgan
-new york times
-
-Update:
-* Update Profile Photo
 * LinkedIn
   * Profile Photo
 * Hired.com 
   * Profile Photo
   * Recommendations
+    * Nate Beatty (IrisVR)
+    * David Chang (Ninthbeat)
+    * Paul Mudahar (Factorspot)
 * AngelList
   * Profile Photo
 * Functionalworks
   * Profile photo
+* Vettery
+  * Profile photo
+* Interviewjet
+  * Waiting for confirmation
+* Triplebyte
+  * Technical interview at Thursday, March 22 2018
+* Github jobs
+  * Profile not set up
+* Stackoverflow jobs
+  * Profile not set up
 
-Applied:
-* Google (through Summer)
-* Facebook (through AngelList)
-* Uber (through AngelList)
-* Jane Street (through website)
+## Applications
 
+| Company     | Role  | Through     | Status           |
+|-------------|-------|-------------|------------------|
+| Google      | SE    | IR (Summer) | S (2-4-18)       |
+| Facebook    | SE    | AngelList   | RaS (2-20-18)    |
+| Facebook    | FE    | Website     | S (2-20-18)      |
+| Uber        | SE    | AngelList   | S (2-4-18)       |
+| Jane Street | SE    | Website     | S (2-16-18)      |
+| Bloomberg   |       |             |                  |
+| Microsoft   |       |             |                  |
+| Apple       |       |             |                  |
+| LinkedIn    |       |             |                  |
+| Spotify     |       |             |                  |
+| JP Morgan   |       |             |                  |
+| Goldman S.  |       |             |                  |
+| NY Times    |       |             |                  |
+| Dropbox     |       |             |                  |
+| Spotify     |       |             |                  |
+| Digital Oc  |       |             |                  |
+| Foursquare  |       |             |                  |
+| Grubhub     |       |             |                  |
+| Venmo       |       |             |                  |
+| Bloomberg   |       |             |                  |
+| Meetup      |       |             |                  |
+| Snapchat    |       |             |                  |
+| Adobe       |       |             |                  |
+| Squarespace |       |             |                  |
+| Intuit      |       |             |                  |
+| Nvidia      |       |             |                  |
 
-
-leetcode.com
-
+Legend: 
+* IR: Internal Referral
+* SE: Software Engineer
+* FE: Frontend Engineer
+* S: Submitted
+* RaS: Rejected at Submission
