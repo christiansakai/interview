@@ -8,6 +8,4 @@ describe('BST', () => {
     expect(bst.root).toBe(null)
   })
 
-  test('can add element', () => {
-  })
 })

@@ -18,8 +18,8 @@ class BST<T> implements BinaryTree<T> {
 
   private _size: number
 
-  constructor(element: T) {
-    this._root = new TreeNode(element)
+  constructor() {
+    this._root = null
     this._size = 0
   }
 
@@ -111,10 +111,17 @@ class BST<T> implements BinaryTree<T> {
           break
 
         // Case 3 - Node has two children
-        // * look at the next biggest value
-        //   by going to the right branch then 
-        //   continue all the way to the left until
+        // if we want to replace it with the next smallest
+        // * look at the next smallest value by
+        //   by going to the left branch then
+        //   continue all the way to the right until
         //   you encounter the leftmost leaf
+        // * if we want to replace it with the next biggest
+        //   * look at the next biggest value
+        //     by going to the right branch then 
+        //     continue all the way to the left until
+        //     you encounter the leftmost leaf
+        // 
         // * make this leaf replace the node 
         //   by pointing this leaf's left to the 
         //   node's left and this leaf's right to the
