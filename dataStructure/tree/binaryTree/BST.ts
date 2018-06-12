@@ -111,11 +111,11 @@ class BST<T> implements BinaryTree<T> {
           break
 
         // Case 3 - Node has two children
-        // if we want to replace it with the next smallest
-        // * look at the next smallest value by
-        //   by going to the left branch then
-        //   continue all the way to the right until
-        //   you encounter the leftmost leaf
+        // * if we want to replace it with the next smallest
+        //   * look at the next smallest value by
+        //     by going to the left branch then
+        //     continue all the way to the right until
+        //     you encounter the leftmost leaf
         // * if we want to replace it with the next biggest
         //   * look at the next biggest value
         //     by going to the right branch then 
@@ -128,14 +128,16 @@ class BST<T> implements BinaryTree<T> {
         //   node's right
         // * point parent to this leaf
         case 'both':
-          const leftMostLeaf = this._findLeftMostLeaf(node._right)
-          leftMostLeaf._left = node._left
-          leftMostLeaf._right = node._right
+          // Choose next smallest node
+          const nextSmallestNode = this._findNextSmallestNode(node)
+
+          nextSmallestNode._left = node._left
+          nextSmallestNode._right = node._right
 
           if (relationBetweenParentAndNode === 'left')
-            parentNode._left = leftMostLeaf
+            parentNode._left = nextSmallestNode
           else
-            parentNode._right = leftMostLeaf
+            parentNode._right = nextSmallestNode
           
           break
 
@@ -172,10 +174,21 @@ class BST<T> implements BinaryTree<T> {
     return 'none'
   }
 
-  private _findLeftMostLeaf(node: TreeNode<T>): TreeNode<T> {
-    let foundNode = node
+  private _findNextBiggestNode(node: TreeNode<T>): TreeNode<T> {
+    let foundNode = node._right
+
     while (node._left !== null) {
       node = node._left
+    }
+
+    return foundNode
+  }
+
+  private _findNextSmallestNode(node: TreeNode<T>): TreeNode<T> {
+    let foundNode = node._left
+
+    while (node._right !== null) {
+      node = node._right
     }
 
     return foundNode
